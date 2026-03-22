@@ -10,6 +10,16 @@ import { navLinks } from "@/lib/data";
  */
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  /* Détecter le scroll pour réduire la nav */
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   /* Empêcher le scroll du body quand le menu est ouvert */
   useEffect(() => {
@@ -59,7 +69,7 @@ export function Navigation() {
   return (
     <>
       {/* ═══ Barre de navigation fixe ═══ */}
-      <nav className={`nav ${isMenuOpen ? "nav--menu-open" : ""}`}>
+      <nav className={`nav ${isMenuOpen ? "nav--menu-open" : ""} ${isScrolled ? "nav--scrolled" : ""}`}>
         <a href="#" className="nav-logo" onClick={handleLogoClick}>
           SYRA
         </a>
