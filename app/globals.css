@@ -5,20 +5,23 @@
    ═══════════════════════════════════════════ */
 
 :root {
-  /* Dark Luxe Palette — Casper's Caviar inspired */
-  --noir: #0a0a0a;
-  --noir-soft: #111111;
-  --noir-warm: #1a1714;
-  --charcoal: #2a2520;
-  --bronze: #8b7355;
-  --bronze-light: #b39a78;
-  --gold: #c4a265;
-  --gold-muted: #9e8a6a;
-  --cream: #f0ead6;
-  --cream-soft: #e8e0cc;
-  --ivory: #faf8f2;
-  --rose-noir: #6b3a3a;
-  --rose-blush: #c4928e;
+  /* Warm Rosé Palette — Solaire & Féminine */
+  --noir: #fdf5f3;
+  --noir-soft: #f8ede8;
+  --noir-warm: #f0e2dc;
+  --charcoal: #e8d6d0;
+  --bronze: #c4928e;
+  --bronze-light: #d4a69e;
+  --gold: #9b2d6b;
+  --gold-muted: #7a2456;
+  --cream: #2a1520;
+  --cream-soft: #5a3a4a;
+  --ivory: #1a0f14;
+  --rose-noir: #9b2d6b;
+  --rose-blush: #e8a0b4;
+  --magenta: #9b2d6b;
+  --sunset: #d4a054;
+  --pink-soft: #f5dde5;
 
   /* Typography Scale */
   --font-display: var(--font-cormorant-garamond), serif;
@@ -42,7 +45,7 @@
   --ease-dramatic: cubic-bezier(0.77, 0, 0.175, 1);
 
   /* Grain overlay */
-  --grain-opacity: 0.035;
+  --grain-opacity: 0.02;
 }
 
 /* ═══════════════════════════════════════════
@@ -63,116 +66,122 @@
   --color-ivory: var(--ivory);
   --color-rose-noir: var(--rose-noir);
   --color-rose-blush: var(--rose-blush);
+  --color-magenta: var(--magenta);
+  --color-sunset: var(--sunset);
+  --color-pink-soft: var(--pink-soft);
   --breakpoint-xs: 30rem;
 }
 
 /* ═══════════════════════════════════════════
-   LIGHT THEME — BLANC & NOIR
+   DARK THEME — WARM ROSÉ NOCTURNE
    ═══════════════════════════════════════════ */
 
-[data-theme="light"] {
-  --noir: #faf8f2;
-  --noir-soft: #f3f0e8;
-  --noir-warm: #ede8dd;
-  --charcoal: #e0dbd0;
-  --bronze: #6b5d4a;
-  --bronze-light: #7a6b55;
-  --gold: #1a1714;
-  --gold-muted: #3d362c;
-  --cream: #0a0a0a;
-  --cream-soft: #1a1714;
-  --ivory: #0a0a0a;
-  --rose-noir: #8a5050;
-  --rose-blush: #9e7070;
-  --grain-opacity: 0.02;
+[data-theme="dark"] {
+  --noir: #1a0f14;
+  --noir-soft: #231520;
+  --noir-warm: #2a1a22;
+  --charcoal: #3d2833;
+  --bronze: #c4928e;
+  --bronze-light: #d4a69e;
+  --gold: #d4a0c0;
+  --gold-muted: #a87090;
+  --cream: #faf0f0;
+  --cream-soft: #e8d8d8;
+  --ivory: #fdf5f3;
+  --rose-noir: #c44088;
+  --rose-blush: #e8a0b4;
+  --magenta: #c44088;
+  --sunset: #d4a054;
+  --pink-soft: #2a1a22;
+  --grain-opacity: 0.035;
 }
 
-[data-theme="light"] .hero-bg {
+[data-theme="dark"] .hero-bg {
   background:
-    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(139,115,85,0.05) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 80% at 20% 80%, rgba(107,58,58,0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(155,45,107,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 80% at 20% 80%, rgba(196,64,136,0.05) 0%, transparent 60%),
     var(--noir);
 }
 
-[data-theme="light"] .product-img-placeholder::before {
-  background: linear-gradient(160deg, #e8e3d8 0%, #f0ead6 50%, #f5f1e8 100%);
+[data-theme="dark"] .product-img-placeholder::before {
+  background: linear-gradient(160deg, #2a1a22 0%, #1a0f14 50%, #231520 100%);
 }
 
-[data-theme="light"] .product-img-placeholder::after {
+[data-theme="dark"] .product-img-placeholder::after {
   background:
-    radial-gradient(ellipse 40% 50% at 35% 40%, rgba(100,85,60,0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 30% 40% at 65% 70%, rgba(140,100,100,0.05) 0%, transparent 60%);
+    radial-gradient(ellipse 40% 50% at 35% 40%, rgba(196,64,136,0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 40% at 65% 70%, rgba(212,160,84,0.06) 0%, transparent 60%);
 }
 
-[data-theme="light"] .product-row:nth-child(1) .bottle-body {
-  background: linear-gradient(180deg, #ddd6c8, #c8c0b0);
-  box-shadow: inset 0 0 30px rgba(0,0,0,0.04);
+[data-theme="dark"] .product-row:nth-child(1) .bottle-body {
+  background: linear-gradient(180deg, #2a1a22, #1a0f14);
+  box-shadow: inset 0 0 30px rgba(196,64,136,0.06);
 }
 
-[data-theme="light"] .product-row:nth-child(2) .bottle-body {
-  background: linear-gradient(180deg, #d8ccd0, #c4b8bc);
-  box-shadow: inset 0 0 30px rgba(0,0,0,0.04);
+[data-theme="dark"] .product-row:nth-child(2) .bottle-body {
+  background: linear-gradient(180deg, #28141e, #1a0f14);
+  box-shadow: inset 0 0 30px rgba(232,160,180,0.06);
 }
 
-[data-theme="light"] .product-row:nth-child(3) .bottle-body {
-  background: linear-gradient(180deg, #cdd4cc, #bcc4bb);
-  box-shadow: inset 0 0 30px rgba(0,0,0,0.03);
+[data-theme="dark"] .product-row:nth-child(3) .bottle-body {
+  background: linear-gradient(180deg, #221420, #1a0f14);
+  box-shadow: inset 0 0 30px rgba(212,160,84,0.04);
 }
 
-[data-theme="light"] .bottle-label-brand { color: #3d362c; }
-[data-theme="light"] .bottle-label-name { color: #1a1714; }
+[data-theme="dark"] .bottle-label-brand { color: #e8d8d8; }
+[data-theme="dark"] .bottle-label-name { color: #d4a0c0; }
 
-[data-theme="light"] .bottle-cap {
-  background: linear-gradient(180deg, #8b7355, #6b5d4a);
+[data-theme="dark"] .bottle-cap {
+  background: linear-gradient(180deg, #c4928e, #a87070);
 }
 
-[data-theme="light"] .bottle-neck {
-  background: linear-gradient(180deg, #6b5d4a, #7a6b55);
+[data-theme="dark"] .bottle-neck {
+  background: linear-gradient(180deg, #a87070, #c4928e);
 }
 
-[data-theme="light"] .heritage-bg {
+[data-theme="dark"] .heritage-bg {
   background:
-    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(237,232,221,1) 0%, var(--noir) 100%);
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(35,21,32,1) 0%, var(--noir) 100%);
 }
 
-[data-theme="light"] .newsletter::before {
+[data-theme="dark"] .newsletter::before {
   background:
-    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(139,115,85,0.04) 0%, transparent 70%);
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(155,45,107,0.06) 0%, transparent 70%);
 }
 
-[data-theme="light"] .cursor-dot { mix-blend-mode: normal; }
-[data-theme="light"] .nav { mix-blend-mode: normal; }
+[data-theme="dark"] .cursor-dot { mix-blend-mode: difference; }
+[data-theme="dark"] .nav { mix-blend-mode: difference; }
 
-[data-theme="light"] .preloader {
-  background: #faf8f2;
+[data-theme="dark"] .preloader {
+  background: #1a0f14;
 }
 
-[data-theme="light"] .preloader-logo {
-  color: #0a0a0a;
+[data-theme="dark"] .preloader-logo {
+  color: #faf0f0;
 }
 
-[data-theme="light"] .product-visual-number {
+[data-theme="dark"] .product-visual-number {
   color: var(--gold-muted);
   opacity: 0.06;
 }
 
-[data-theme="light"] .footer {
-  border-top: 1px solid rgba(26,23,20,0.1);
+[data-theme="dark"] .footer {
+  border-top: 1px solid rgba(196,64,136,0.1);
 }
 
-[data-theme="light"] .scroll-line {
-  background: rgba(26,23,20,0.15);
+[data-theme="dark"] .scroll-line {
+  background: rgba(196,64,136,0.15);
 }
 
-[data-theme="light"] .scroll-line::after {
+[data-theme="dark"] .scroll-line::after {
   background: var(--gold);
 }
 
 /* Global transition for theme switch */
-[data-theme="light"],
-[data-theme="light"] *,
-[data-theme="light"] *::before,
-[data-theme="light"] *::after {
+[data-theme="dark"],
+[data-theme="dark"] *,
+[data-theme="dark"] *::before,
+[data-theme="dark"] *::after {
   transition-property: background, background-color, color, border-color, box-shadow, opacity;
   transition-duration: 0.7s;
   transition-timing-function: cubic-bezier(0.25, 0.1, 0.0, 1.0);
@@ -191,7 +200,7 @@
   height: 36px;
   border-radius: 50%;
   border: 1px solid var(--gold-muted);
-  background: rgba(10,10,10,0.6);
+  background: rgba(253,245,243,0.7);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   cursor: pointer;
@@ -201,8 +210,8 @@
   transition: background 0.5s var(--ease-silk), border-color 0.5s var(--ease-silk), transform 0.3s var(--ease-silk);
 }
 
-[data-theme="light"] .theme-toggle {
-  background: rgba(250,248,242,0.7);
+[data-theme="dark"] .theme-toggle {
+  background: rgba(26,15,20,0.7);
 }
 
 .theme-toggle:hover {
@@ -236,24 +245,26 @@
   stroke-linecap: round;
 }
 
+/* Mode clair (défaut) : montrer lune, cacher soleil */
 .toggle-icon-light {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.toggle-icon-dark {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.4);
+}
+
+/* Mode dark : montrer soleil, cacher lune */
+[data-theme="dark"] .toggle-icon-light {
   opacity: 0;
   transform: rotate(-90deg) scale(0.4);
 }
 
-.toggle-icon-dark {
+[data-theme="dark"] .toggle-icon-dark {
   opacity: 1;
   transform: rotate(0deg) scale(1);
-}
-
-[data-theme="light"] .toggle-icon-light {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
-}
-
-[data-theme="light"] .toggle-icon-dark {
-  opacity: 0;
-  transform: rotate(90deg) scale(0.4);
 }
 
 .theme-toggle::after {
@@ -413,7 +424,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  mix-blend-mode: difference;
   transition: padding 0.5s var(--ease-silk), opacity 0.6s, background 0.5s var(--ease-silk), backdrop-filter 0.5s, border-bottom 0.5s var(--ease-silk);
 }
 
@@ -421,17 +431,17 @@ body {
 .nav--scrolled {
   padding: 1rem 3.5rem;
   mix-blend-mode: normal;
-  background: rgba(10,10,10,0.85);
+  background: rgba(253,245,243,0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(196,162,101,0.06);
+  border-bottom: 1px solid rgba(155,45,107,0.06);
 }
 
-[data-theme="light"] .nav--scrolled {
-  background: rgba(250,248,242,0.92);
+[data-theme="dark"] .nav--scrolled {
+  background: rgba(26,15,20,0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(26,23,20,0.08);
+  border-bottom: 1px solid rgba(196,64,136,0.08);
 }
 
 .nav-logo {
@@ -510,8 +520,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(139,115,85,0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 80% at 20% 80%, rgba(107,58,58,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(155,45,107,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 80% at 20% 80%, rgba(212,160,84,0.04) 0%, transparent 60%),
     var(--noir);
   z-index: 0;
 }
@@ -806,7 +816,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, var(--charcoal) 0%, var(--noir-warm) 50%, var(--noir-soft) 100%);
+  background: linear-gradient(160deg, #f0e2dc 0%, #f5dde5 50%, #f8ede8 100%);
 }
 
 .product-img-placeholder::after {
@@ -814,8 +824,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 40% 50% at 35% 40%, rgba(196,162,101,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 30% 40% at 65% 70%, rgba(196,146,142,0.08) 0%, transparent 60%);
+    radial-gradient(ellipse 40% 50% at 35% 40%, rgba(155,45,107,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 40% at 65% 70%, rgba(212,160,84,0.06) 0%, transparent 60%);
 }
 
 .product-bottle {
@@ -875,20 +885,20 @@ body {
   margin-top: 0.2rem;
 }
 
-/* Color variants for bottles */
+/* Color variants for bottles — rose poudré warm */
 .product-row:nth-child(1) .bottle-body {
-  background: linear-gradient(180deg, #1a1512, #0d0b09);
-  box-shadow: inset 0 0 30px rgba(196,162,101,0.06);
+  background: linear-gradient(180deg, #e8d6d0, #d4c0b8);
+  box-shadow: inset 0 0 30px rgba(155,45,107,0.06);
 }
 
 .product-row:nth-child(2) .bottle-body {
-  background: linear-gradient(180deg, #1c1418, #0e0a0d);
-  box-shadow: inset 0 0 30px rgba(196,146,142,0.06);
+  background: linear-gradient(180deg, #e0ccd4, #d0b8c0);
+  box-shadow: inset 0 0 30px rgba(232,160,180,0.08);
 }
 
 .product-row:nth-child(3) .bottle-body {
-  background: linear-gradient(180deg, #141614, #090b09);
-  box-shadow: inset 0 0 30px rgba(160,180,160,0.04);
+  background: linear-gradient(180deg, #dcd0d8, #c8bcc4);
+  box-shadow: inset 0 0 30px rgba(212,160,84,0.05);
 }
 
 .product-visual-number {
@@ -1058,7 +1068,7 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(26,23,20,1) 0%, var(--noir) 100%);
+    radial-gradient(ellipse 70% 50% at 50% 50%, rgba(240,226,220,1) 0%, var(--noir) 100%);
 }
 
 .heritage-timeline {
@@ -1620,8 +1630,8 @@ body {
   -webkit-backdrop-filter: blur(30px);
 }
 
-[data-theme="light"] .mobile-menu-bg {
-  background: var(--noir);
+[data-theme="dark"] .mobile-menu-bg {
+  background: #1a0f14;
   opacity: 0.97;
 }
 

@@ -3,16 +3,17 @@
 import { useEffect, useRef, useSyncExternalStore } from "react";
 
 /**
- * Lecture du thème depuis localStorage via useSyncExternalStore
- * pour éviter les setState dans useEffect (React Compiler).
+ * Lecture du thème depuis localStorage via useSyncExternalStore.
+ * Le mode clair est le DÉFAUT (pas de data-theme).
+ * Le mode sombre est activé via data-theme="dark".
  */
-function getThemeSnapshot(): "dark" | "light" {
-  if (typeof window === "undefined") return "dark";
-  return (localStorage.getItem("syra-theme") as "dark" | "light") ?? "dark";
+function getThemeSnapshot(): "light" | "dark" {
+  if (typeof window === "undefined") return "light";
+  return (localStorage.getItem("syra-theme") as "light" | "dark") ?? "light";
 }
 
-function getServerSnapshot(): "dark" | "light" {
-  return "dark";
+function getServerSnapshot(): "light" | "dark" {
+  return "light";
 }
 
 function subscribeToTheme(callback: () => void): () => void {
@@ -21,9 +22,9 @@ function subscribeToTheme(callback: () => void): () => void {
 }
 
 /**
- * Bouton de bascule thème sombre/clair — fixé en bas à droite.
- * Persiste le choix dans localStorage.
- * Icônes soleil (dark) et lune (light) avec animation de rotation.
+ * Bouton de bascule thème clair/sombre — fixé en bas à droite.
+ * Mode clair = défaut (pas d'attribut data-theme).
+ * Mode sombre = data-theme="dark".
  */
 export function ThemeToggle() {
   const theme = useSyncExternalStore(
@@ -36,23 +37,22 @@ export function ThemeToggle() {
   useEffect(() => {
     if (!initialized.current) {
       initialized.current = true;
-      if (theme === "light") {
-        document.documentElement.setAttribute("data-theme", "light");
+      if (theme === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
       }
     }
   });
 
   const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
+    const nextTheme = theme === "light" ? "dark" : "light";
 
-    if (nextTheme === "light") {
-      document.documentElement.setAttribute("data-theme", "light");
+    if (nextTheme === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
     } else {
       document.documentElement.removeAttribute("data-theme");
     }
 
     localStorage.setItem("syra-theme", nextTheme);
-    /* Dispatch storage event pour que useSyncExternalStore se mette à jour */
     window.dispatchEvent(new StorageEvent("storage"));
   };
 
@@ -60,7 +60,7 @@ export function ThemeToggle() {
     <button
       className="theme-toggle"
       onClick={toggleTheme}
-      data-tooltip={theme === "dark" ? "Mode clair" : "Mode sombre"}
+      data-tooltip={theme === "light" ? "Mode sombre" : "Mode clair"}
       aria-label="Changer de thème"
     >
       <div className="theme-toggle-inner">
